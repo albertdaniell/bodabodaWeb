@@ -32,7 +32,11 @@ class AppNav extends Component {
             name: '',
             phone: '',
             email: '',
-            password: ''
+            password: '',
+            nameError:'',
+            phoneError:'',
+            emailError:'',
+            passwordError:''
         }
     }
     handleChange = (event) => {
@@ -53,13 +57,13 @@ class AppNav extends Component {
 
     registerLeader= async (event)=>{
         event.preventDefault()
-        if(this.state.name === '' || this.state.phone === '' || this.state.email === '' || this.state.password === ''){
-            alert("Please fill in all fields")
+        // if(this.state.name === '' || this.state.phone === '' || this.state.email === '' || this.state.password === ''){
+        //     alert("Please fill in all fields")
 
-            return 0;
-        }
+        //     return 0;
+        // }
 
-        else{
+        // else{
     try{
         await axios({
             method:'POST',
@@ -67,7 +71,7 @@ class AppNav extends Component {
             data:{
                 "Name":this.state.name,
                 "Email":this.state.email,
-                "date":'2019-08-03',
+                
                 "phone_number":this.state.phone,
                 "password":this.state.password
             }
@@ -76,9 +80,41 @@ class AppNav extends Component {
 
         alert("Success")
     }catch(error){
-alert("Error" +error)
+        console.log(JSON.stringify((error.response.data)))
+var nameError=error.response.data.Name
+var EmailError=error.response.data.Email
+var dateError=error.response.data.date
+var passwordError =error.response.data.password
+var phoneError=error.response.data.phone_number
+if(nameError !== undefined || EmailError !==undefined || dateError !== undefined || phoneError !== undefined){
+   //alert("Name error " + nameError)
+   this.setState({
+       nameError:nameError,
+       emailError:EmailError,
+       dateError:dateError,
+       phoneError:phoneError,
+       passwordError:passwordError
+   })
+
+  
+}
+else if(EmailError !== undefined){
+   // alert("Email error :" +EmailError)
+}
+else if(dateError !== undefined){
+    //alert("date error :" +dateError)
+}
+else if(phoneError !== undefined){
+    //alert("phone number error :" +dateError)
+}
+
+
+else if(passwordError !== undefined){
+    alert("password error :" +passwordError)
+}
+
     }
-        }
+        // }
     }
 
     render() {
@@ -97,6 +133,8 @@ alert("Error" +error)
                     label="Enter name of the base leader"
                     margin="normal"/>
 
+                    <p>{this.state.nameError}</p>
+
                 <TextField
                 value={this.state.phone}
                     onChange={(phone) => this.handleChange2(phone)}
@@ -107,7 +145,7 @@ alert("Error" +error)
                     id="standard-name"
                     label="Enter phone of the base leader"
                     margin="normal"/>
-
+                    <p>{this.state.phoneError}</p>
                 <TextField
                 value={this.state.email}
                     onChange={(email) => this.handleChange3(email)}
@@ -119,6 +157,8 @@ alert("Error" +error)
                     label="Enter the email address "
                     margin="normal"/>
 
+                    <p>{this.state.emailError}</p>
+
                 <TextField
                 value={this.state.password}
                     onChange={(password) => this.handleChange4(password)}
@@ -129,6 +169,8 @@ alert("Error" +error)
                     id="standard-name"
                     label="Enter the password"
                     margin="normal"/>
+
+                    <p>{this.state.passwordError}</p>
 
                 <Button
                 onClick={(event)=>this.registerLeader(event)}
