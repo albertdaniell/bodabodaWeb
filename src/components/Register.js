@@ -64,6 +64,9 @@ class AppNav extends Component {
         // }
 
         // else{
+
+      
+
     try{
         await axios({
             method:'POST',
@@ -115,6 +118,29 @@ else if(passwordError !== undefined){
 
     }
         // }
+    }
+
+    getUser= async ()=>{
+        //alert(0)
+
+        //check to see if a user with the email exists
+try{
+await axios({
+    method:'GET',
+    url:`api/leaders/${this.state.email}`
+}).then((res)=>{
+if(res.data.Email === this.state.email){
+    alert("Email exists")
+    return 0;
+}
+})
+}catch(error){
+console.log("Error is : "+error.response.status)
+
+if(error.response.status === 404){
+   // alert("User cannot be found")
+}
+}
     }
 
     render() {
@@ -180,6 +206,16 @@ else if(passwordError !== undefined){
                     variant="contained"
                     color="primary">
                     Register
+                </Button>
+
+                <Button
+                onClick={()=>this.getUser()}
+                    style={{
+                    marginTop: 20
+                }}
+                    variant="contained"
+                    color="primary">
+                    Get user
                 </Button>
 
             </div>
