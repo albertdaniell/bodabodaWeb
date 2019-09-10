@@ -18,17 +18,11 @@ import {
 class AppNav extends Component {
     render() {
         return (
-            <div className="">
-                <AppBar position="static">
-                    <Toolbar variant="dense">
-
-                        <Typography variant="h6" color="inherit">
-                            Photos
-                        </Typography>
-                    </Toolbar>
-                </AppBar>
-
-            </div>
+          <div className="col-sm-12" style={{padding:0}}>
+          <nav class="navbar navbar-default">
+                
+            </nav>
+          </div>
         );
     }
 }

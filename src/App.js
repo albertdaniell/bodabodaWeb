@@ -9,24 +9,35 @@ import Register from './components/Register'
 class App extends Component {
     render() {
         return (
-            <div className="">
-              
-       
-                <Grid container>
+            <div className="container-fluid">
 
-                    <Grid item xs={2}>
+                <div className="row">
+                    <div className="col-sm-12">
+                <div className="col-sm-2">
+            <AppNav></AppNav>
+                </div>
+                <div className="col-sm-10">
+           <Register></Register>
+                </div>
+                    </div>
+                </div>
+              
+{/*        
+                <Grid container style={{height:'100%'}}>
+
+                    <Grid item xs={2} style={{backgroundColor:'red'}}>
                 
                       <AppNav/>
                     </Grid>
 
-                    <Grid item xs={10}>
+                    <Grid item xs={10} style={{backgroundColor:'#cfe8fc',height:'100%'}}>
                        
 
                             <Typography
                                 component="div"
                                 style={{
-                                backgroundColor: '#cfe8fc',
-                                height: '100vh'
+                                
+                                height: '100%'
                             }}>
                             <AppNav2></AppNav2>
                                <Container style={{marginTop:20}}>
@@ -41,7 +52,7 @@ class App extends Component {
 
                     
                     </Grid>
-                </Grid>
+                </Grid> */}
 
             </div>
         );

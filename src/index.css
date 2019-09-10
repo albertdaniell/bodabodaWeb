@@ -1,13 +1,62 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    background-color: rgb(233, 233, 233);
+    height: 100%;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+}
+html {
+    height: 100%;
+
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
+
+.list-group-item {
+    color: red;
+}
+
+.myNav a {
+    display: block;
+    color: '#ccc';
+    text-decoration: 'none';
+    padding: 10px;
+    text-decoration-line: none;
+
+}
+
+#mynav a {
+    color: white;
+}
+.myNav a:hover {
+
+    text-decoration: 'none';
+    text-decoration-line: none;
+    background-color: '#ccc';
+    color: purple;
+}
+
+.myNav {
+
+    height: 100%;
+}
+
+.active {
+    color: red;
+    background: #0f840fb0;
+}
+#mynav a:hover {
+    background: '#ccc';
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    }
